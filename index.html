@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Retiro</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+
+  <body>
+    <div class="flex justify-center items-center flex-col h-screen width-full">
+      <main
+        class="flex flex-col justify-center items-center width-full bg-slate-300 rounded-3xl"
+      >
+        <h1 class="text-3xl font-bold">Inicie sesion</h1>
+        <form
+          class="flex flex-col justify-center items-center gap-4 p-6"
+          action="./controllers/login.php"
+          method="post"
+        >
+          <div class="flex justify-between items-center w-full">
+            <label class="font-bold m-2 cursor-pointer" for="email"
+              >Correo:</label
+            >
+            <input
+              class="p-2 mr-4 border-gray-500 rounded-md"
+              type="email"
+              name="email"
+              id="email"
+              required
+            />
+          </div>
+          <div class="flex justify-between items-center w-full">
+            <label class="font-bold m-2 cursor-pointer" for="password"
+              >Contraseña:</label
+            >
+            <input
+              class="p-2 mr-4 border-gray-500 rounded-md"
+              type="password"
+              name="password"
+              id="password"
+              required
+            />
+          </div>
+          <button
+            class="bg-slate-500 hover:bg-slate-700 text-white font-bold py-2 px-4 rounded"
+            type="submit"
+          >
+            Iniciar Sesion
+          </button>
+        </form>
+      </main>
+    </div>
+  </body>
+</html>
