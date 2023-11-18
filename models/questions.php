@@ -9,7 +9,21 @@ class QuestionModel extends Connection
     public function getQuestionaryById($id)
     {
         $query = "SELECT * FROM questionary WHERE id = $id";
-        return parent::findOne($query);
+        $questionary = parent::findOne($query);
+
+        // Traerse las preguntas del cuestionario pasando el id
+        $questions = $this->getQuestionsByQuestionaryId($id);
+
+        // Traerse las opciones de cada una de las preguntas pasando
+        foreach ($questions as &$question) {
+            $question['options'] = $this->getOptionsByQuestionId($question['id']);
+        }
+
+        $result = array(
+            'questionary' => $questionary,
+            'questions' => $questions,
+        );
+        return $result;
     }
 
     public function getQuestionsByQuestionaryId($id)
