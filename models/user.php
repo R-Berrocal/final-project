@@ -1,6 +1,6 @@
 <?php
 
-require_once('../models/connection.php');
+require_once(__DIR__ . './connection.php');
 
 class UserModel extends Connection
 {
