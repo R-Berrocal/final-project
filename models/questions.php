@@ -34,7 +34,11 @@ class QuestionModel extends Connection
 
     public function getOptionsByQuestionId($id)
     {
-        $query = "SELECT options.id, options.value FROM options, questions_options  WHERE questions_id = $id group by options.value";
+        $query = "SELECT options.id, options.value 
+              FROM options 
+              INNER JOIN questions_options ON options.id = questions_options.options_id
+              WHERE questions_options.questions_id = $id
+              ORDER BY options.id ASC";
         return parent::findAll($query);
     }
 }
