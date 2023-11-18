@@ -1,9 +1,9 @@
 <?php
-// session_start();
-// $userLogued = $_SESSION['userLogued'];
-// if (!isset($userLogued)) {
-//     header("Location: /final-project");
-// }
+session_start();
+$userLogued = $_SESSION['userLogued'];
+if (!isset($userLogued)) {
+    header("Location: /final-project");
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
