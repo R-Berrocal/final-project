@@ -22,4 +22,17 @@ class QuestionModel extends Connection
         return parent::findAll($query);
     }
 
+    public function saveResponse($userId, $questionId, $optionId)
+    {
+        $query = "INSERT INTO response (users_id, questions_id, options_id) VALUES ($userId, $questionId, $optionId)";
+        
+        $result = $this->save($query);
+
+        if ($result === true) {
+            return true; // Éxito al guardar la respuesta
+        } else {
+            return "Error al guardar la respuesta: " . $result;
+        }
+    }
+
 }
