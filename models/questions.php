@@ -20,7 +20,7 @@ class QuestionModel extends Connection
         }
 
         $result = array(
-            'questionary' => $questionary,
+            'questionary' => $questionary->fetch_object(),
             'questions' => $questions,
         );
         return $result;
