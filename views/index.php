@@ -1,6 +1,6 @@
 <?php
 session_start();
-$userLogued = $_SESSION['userLogued'];
+$userLogued = $_SESSION['user'];
 if (!isset($userLogued)) {
     header("Location: /final-project");
 }

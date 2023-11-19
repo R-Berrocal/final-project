@@ -1,22 +1,73 @@
 <?php
 
-require_once(__DIR__ . './connection.php');
+require_once(__DIR__ . '/connection.php');
 
 class UserModel extends Connection
 {
+    private $email;
+    private $password;
+    private $identification;
 
-    //acá vamos a manejar toda la logica del login, validar los campos, etc
-    public function login($email, $password)
+    function getIdentification()
     {
-        $query = "SELECT * FROM users WHERE email = '$email' AND password = '$password'";
-
-        return parent::findOne($query);
+        return parent::validate($this->identification);
     }
 
-    public function createUser($identification, $email, $password, $role)
+    function getEmail()
     {
-        $query = "INSERT INTO users (identification, email, password, role) VALUES ('$identification', '$email', '$password', '$role')";
-        return parent::save($query);
+        return parent::validate($this->email);
+    }
+
+    function getPassword()
+    {
+        return parent::validatePassword($this->password);
+    }
+
+    function setIdentification($identification)
+    {
+        $this->identification = $identification;
+    }
+
+    function setEmail($email)
+    {
+        $this->email = $email;
+    }
+
+    function setPassword($password)
+    {
+        $this->password = $password;
+    }
+
+    //acá vamos a manejar toda la logica del login, validar los campos, etc
+    public function login()
+    {
+        $result = false;
+        $password = $this->password;
+
+        $query = "SELECT * FROM users WHERE email = '{$this->getEmail()}'";
+        $login = parent::findOne($query);
+
+        if (is_object($login) && $login->num_rows == 1) {
+            $usuario = $login->fetch_object();
+            $verify = password_verify($password, $usuario->password);
+
+            if ($verify) {
+                $result = $usuario;
+            }
+        }
+
+        return $result;
+    }
+
+    public function createUser()
+    {
+        $query = "INSERT INTO users (identification, email, password, role) VALUES ('{$this->getIdentification()}', '{$this->getEmail()}', '{$this->getPassword()}', 'user');";
+        $save = parent::save($query);
+        $result = false;
+        if ($save) {
+            $result = true;
+        }
+        return $result;
     }
 
     public function updateUser($id, $identification, $email, $password)

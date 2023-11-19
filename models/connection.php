@@ -20,6 +20,14 @@ class Connection
         }
     }
 
+    public function validate($data){
+        return mysqli_real_escape_string($this->connection, $data);        
+    }
+
+    public function validatePassword($password){
+        return password_hash($this->connection->real_escape_string($password), PASSWORD_BCRYPT, ['cost' => 4]);
+    }
+
     public function findAll($query)
     {
         $result = mysqli_query($this->connection, $query);
@@ -45,7 +53,7 @@ class Connection
         } elseif (mysqli_num_rows($result) == 0) {
             return "No se encontraron items";
         }
-        return mysqli_fetch_assoc($result);
+        return ($result);
     }
 
     public function save($query)
