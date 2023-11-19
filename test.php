@@ -3,7 +3,8 @@
 require_once(__DIR__ . './models/questions.php');
 $questionModel = new QuestionModel();
 
-$questionary = $questionModel->findAll("SELECT * FROM questionary");
+// Traerse el cuestionario, solo deben pasar el ide del cuestionario
+$questionary = $questionModel->getQuestionaryById(1);
 
-header("Content-Type: application/json");
-print_r(json_encode($questionary));
+header('Content-Type: application/json');
+print_r(json_encode($questionary, JSON_PRETTY_PRINT));
