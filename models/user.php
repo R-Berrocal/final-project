@@ -10,17 +10,17 @@ class UserModel extends Connection
 
     function getIdentification()
     {
-        return parent::validate($this->identification);
+        return mysqli_real_escape_string($this->connection, $this->identification);
     }
 
     function getEmail()
     {
-        return parent::validate($this->email);
+        return mysqli_real_escape_string($this->connection, $this->email);
     }
 
     function getPassword()
     {
-        return parent::validatePassword($this->password);
+        return password_hash($this->connection->real_escape_string($this->password), PASSWORD_BCRYPT, ['cost' => 4]);
     }
 
     function setIdentification($identification)

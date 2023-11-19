@@ -5,7 +5,7 @@ class Connection
     private $user;
     private $password;
     private $dbname;
-    private $connection;
+    public $connection;
 
     function __construct()
     {
@@ -18,14 +18,6 @@ class Connection
         if ($this->connection->connect_errno) {
             echo "Fallo al conectar a MySQL: (" . $this->connection->connect_errno . ") " . $this->connection->connect_error;
         }
-    }
-
-    public function validate($data){
-        return mysqli_real_escape_string($this->connection, $data);        
-    }
-
-    public function validatePassword($password){
-        return password_hash($this->connection->real_escape_string($password), PASSWORD_BCRYPT, ['cost' => 4]);
     }
 
     public function findAll($query)
