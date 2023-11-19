@@ -5,7 +5,7 @@ class Connection
     private $user;
     private $password;
     private $dbname;
-    private $connection;
+    public $connection;
 
     function __construct()
     {
@@ -45,7 +45,7 @@ class Connection
         } elseif (mysqli_num_rows($result) == 0) {
             return "No se encontraron items";
         }
-        return mysqli_fetch_assoc($result);
+        return ($result);
     }
 
     public function save($query)

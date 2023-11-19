@@ -1,6 +1,6 @@
 <?php
 session_start();
-$userLogued = $_SESSION['userLogued'];
+$userLogued = $_SESSION['user'];
 if (!isset($userLogued)) {
     header("Location: /final-project");
 }
@@ -16,10 +16,8 @@ if (!isset($userLogued)) {
 </head>
 
 <body>
-    <div class="flex justify-between items-center flex-col h-screen width-full">
-        <?php
-        include('./components/navbar.html');
-        ?>
+    <?php include('./components/navbar.php');?>
+    <div class="flex justify-between items-center flex-col h-screen width-full">        
         <main class="flex flex-col justify-center items-center width-full">
             <h1 class="text-3xl font-bold">Bienvenido al home</h1>
         </main>
@@ -27,6 +25,7 @@ if (!isset($userLogued)) {
         <?php include('./components/footer.html');
         ?>
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.1/flowbite.min.js"></script>
 </body>
 
 </html>
