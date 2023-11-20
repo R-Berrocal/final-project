@@ -1,9 +1,26 @@
 <?php
+session_start();
 
 require_once(__DIR__ . '../../models/user.php');
-session_start();
-$userModel = new UserModel();
-$user = $userModel->login($_POST['email'], $_POST['password']);
 
-$_SESSION['userLogued'] = $user;
-header("Location: /final-project/views");
+if (isset($_POST)) {
+    
+    $usuario = new UserModel();
+    $usuario->setEmail($_POST['email']);
+    $usuario->setPassword($_POST['password']);
+
+    $identity = $usuario->login();
+    
+    if ($identity && is_object($identity)) {
+        if ($identity->role == 'user') {
+            $_SESSION['user'] = $identity;           
+
+        }else if ($identity->role == 'admin') {
+            $_SESSION['admin'] = $identity;
+        }
+    } else {
+        $_SESSION['error_login'] = 'Identificación fallida !!';
+    }
+}
+
+header("Location: /final-project/views/");
