@@ -1,6 +1,17 @@
 <?php
 // Incluir el archivo general_form.php que contiene la lógica para obtener $questionary
 include '../controllers/general_form.php';
+
+// Validar si hay una sesión iniciada
+$userLogued = $_SESSION['user'];
+if (!isset($userLogued)) {
+    // Redirigir a la página de inicio de sesión si no hay una sesión iniciada
+    header("Location: /final-project");
+    exit; // Asegúrate de terminar la ejecución del script si se redirige
+}
+
+// Obtener los datos del cuestionario para mostrarlos en la página
+$questionary = $questionModel->getQuestionaryById(1);
 ?>
 
 <!DOCTYPE html>
@@ -9,12 +20,11 @@ include '../controllers/general_form.php';
 <head>
     <meta charset="UTF-8">
     <title>Información del Cuestionario</title>
-    <!-- Aquí puedes incluir tus estilos CSS si los tienes -->
-    <!-- Por ejemplo, puedes enlazar un archivo CSS externo -->
-    <!-- <link rel="stylesheet" href="styles.css"> -->
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
 <body>
+    <?php include('./components/navbar.php'); ?>
     <?php if ($questionary) : ?>
         <h1><?= $questionary["questionary"]->name ?></h1>
         <p><?= $questionary["questionary"]->description ?></p>

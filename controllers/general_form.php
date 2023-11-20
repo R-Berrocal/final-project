@@ -1,17 +1,11 @@
 <?php
 session_start();
 $userLogued = $_SESSION['user'];
-if (!isset($userLogued)) {
-    header("Location: /final-project");
-    exit; // Asegúrate de terminar la ejecución del script si se redirige
-}
-
 $userId = $userLogued->id;
 
 
-// Requerir archivos conecction.php y questions.php
+// Requerir archivo questions.php
 require_once(__DIR__ . '../../models/questions.php');
-require_once(__DIR__ . '../../models/connection.php');
 
 $questionModel = new QuestionModel();
 
@@ -26,8 +20,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             }
         }
     }
+    // Redirigir al home luego de enviar las respuestas
+    header("Location: /final-project/views/");
 }
-
-// Obtener los datos para la vista
-$questionary = $questionModel->getQuestionaryById(1);
-?>
