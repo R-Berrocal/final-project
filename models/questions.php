@@ -48,7 +48,7 @@ class QuestionModel extends Connection
         
         $result = $this->save($query);
 
-        if ($result === true) {
+        if ($result >0) {
             return true; // Éxito al guardar la respuesta
         } else {
             return "Error al guardar la respuesta: " . $result;
