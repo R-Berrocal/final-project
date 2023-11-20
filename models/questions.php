@@ -20,7 +20,7 @@ class QuestionModel extends Connection
         }
 
         $result = array(
-            'questionary' => $questionary,
+            'questionary' => $questionary->fetch_object(),
             'questions' => $questions,
         );
         return $result;
@@ -41,4 +41,18 @@ class QuestionModel extends Connection
               ORDER BY options.id ASC";
         return parent::findAll($query);
     }
+
+    public function saveResponse($userId, $questionId, $optionId)
+    {
+        $query = "INSERT INTO response (users_id, questions_id, options_id) VALUES ($userId, $questionId, $optionId)";
+        
+        $result = $this->save($query);
+
+        if ($result >0) {
+            return true; // Éxito al guardar la respuesta
+        } else {
+            return "Error al guardar la respuesta: " . $result;
+        }
+    }
+
 }
