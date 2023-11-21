@@ -1,3 +1,5 @@
+<?php session_start() ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -22,6 +24,7 @@
             Iniciar Sesión
           </h1>
           <div class="w-full flex-1 mt-8">
+          <h2 class="text-red-600 mx-auto max-w-xs"><?php if (isset($_SESSION['error_login'])) {echo $_SESSION['error_login'];}?></h2>
             <form class="flex flex-col justify-center items-center gap-4 p-6" action="./controllers/login.php"
               method="post">
               <div class="mx-auto max-w-xs">
@@ -31,6 +34,7 @@
                 <input
                   class="w-full px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white mt-5"
                   type="password" placeholder="Password" name="password" required />
+                  <h2 class="text-red-600 pt-4 mx-auto max-w-xs"><?php if (isset($_SESSION['error_login'])) {echo "Correo o contraseña incorrectos!";}?></h2>
                 <button
                   class="mt-5 tracking-wide font-semibold bg-indigo-500 text-gray-100 w-full py-4 rounded-lg hover:bg-indigo-700 transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none">
                   <svg class="w-6 h-6 -ml-2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
