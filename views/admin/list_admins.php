@@ -20,18 +20,18 @@
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
-<body class="m-0 font-sans text-base antialiased font-normal dark:bg-slate-900 leading-default bg-gray-50 text-slate-500">
-  <div class="absolute w-full bg-purple-300 dark:hidden min-h-75"></div>
+<body class="m-0 font-sans text-base antialiased font-normal  leading-default bg-gray-50 text-slate-500">
+  <div class="absolute w-full bg-purple-300  min-h-75"></div>
 
-  <aside class="fixed inset-y-0 flex-wrap items-center justify-between block w-full p-0 my-4 overflow-y-auto antialiased transition-transform duration-200 -translate-x-full bg-white border-0 shadow-xl dark:shadow-none dark:bg-slate-850 max-w-64 ease-nav-brand z-990 xl:ml-6 rounded-2xl xl:left-0 xl:translate-x-0" aria-expanded="false">
+  <aside class="fixed inset-y-0 flex-wrap items-center justify-between block w-full p-0 my-4 overflow-y-auto antialiased transition-transform duration-200 -translate-x-full bg-white border-0 shadow-xl dark:shadow-none  max-w-64 ease-nav-brand z-990 xl:ml-6 rounded-2xl xl:left-0 xl:translate-x-0" aria-expanded="false">
 
 
-    <hr class="h-px mt-0 bg-transparent bg-gradient-to-r from-transparent via-black/40 to-transparent dark:bg-gradient-to-r dark:from-transparent dark:via-white dark:to-transparent" />
+    <hr class="h-px mt-0 bg-transparent bg-gradient-to-r from-transparent via-black/40 to-transparent " />
 
     <div class="mt-8 items-center block w-auto max-h-screen overflow-auto h-sidenav grow basis-full">
       <ul class="flex flex-col pl-0 mb-0">
         <li class="mt-0.5 w-full">
-          <a class="py-2.7  dark:text-white dark:opacity-80 text-sm ease-nav-brand my-0 mx-2 flex items-center whitespace-nowrap  px-4 font-semibold text-slate-700 transition-colors" href="dashboard.php">
+          <a class="py-2.7   text-sm ease-nav-brand my-0 mx-2 flex items-center whitespace-nowrap  px-4 font-semibold text-slate-700 transition-colors" href="dashboard.php">
             <div class="mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-center stroke-0 text-center xl:p-2.5">
               <i class="relative top-0 text-sm leading-normal text-blue-500 ni ni-tv-2"></i>
             </div>
@@ -40,7 +40,7 @@
         </li>
 
         <li class="mt-0.5 w-full">
-          <a class=" dark:text-white dark:opacity-80 py-2.7 text-sm ease-nav-brand my-0 mx-2 flex items-center whitespace-nowrap  px-4 transition-colors" href="responses.php">
+          <a class="  py-2.7 text-sm ease-nav-brand my-0 mx-2 flex items-center whitespace-nowrap  px-4 transition-colors" href="responses.php">
             <div class="mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-center stroke-0 text-center xl:p-2.5">
               <i class="relative top-0 text-sm leading-normal text-orange-500 ni ni-calendar-grid-58"></i>
             </div>
@@ -49,7 +49,7 @@
         </li>
 
         <li class="mt-0.5 w-full">
-          <a class=" dark:text-white bg-blue-500/13 dark:opacity-80 py-2.7 text-sm ease-nav-brand my-0 mx-2 flex items-center whitespace-nowrap rounded-lg px-4 transition-colors" href="list_admins.php">
+          <a class="  bg-blue-500/13  py-2.7 text-sm ease-nav-brand my-0 mx-2 flex items-center whitespace-nowrap rounded-lg px-4 transition-colors" href="list_admins.php">
             <div class="mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-center stroke-0 text-center xl:p-2.5">
               <i class="relative top-0 text-sm leading-normal text-blue-500 ni ni-circle-08"></i>
             </div>
@@ -72,7 +72,7 @@
   <main class="relative h-full max-h-screen transition-all duration-200 ease-in-out xl:ml-68 rounded-xl">
     <!-- Navbar -->
     <div class="flex justify-end pr-2 pt-2">
-      <button href="/final-project/controllers/logout.php" class="bg-red-400  hover:bg-red-700 w-44 text-white font-bold py-2 px-4 rounded"><a href="/final-project/controllers/logout.php"> Cerrar Sesion</a></button>
+      <button class="bg-red-400  hover:bg-red-700 w-44 text-white font-bold py-2 px-4 rounded"><a href="/final-project/controllers/logout.php"> Cerrar Sesion</a></button>
     </div>
     <nav class="relative flex flex-wrap items-center justify-between px-0 py-2 mx-6 transition-all ease-in shadow-none duration-250 rounded-2xl lg:flex-nowrap lg:justify-start" navbar-main navbar-scroll="false">
 
@@ -133,11 +133,11 @@
 
       <div class="flex flex-wrap -mx-3">
         <div class="flex-none w-full max-w-full px-3">
-          <div class="relative flex flex-col min-w-0 mb-6 break-words bg-white border-0 border-transparent border-solid shadow-xl dark:bg-slate-850 dark:shadow-dark-xl rounded-2xl bg-clip-border">
+          <div class="relative flex flex-col min-w-0 mb-6 break-words bg-white border-0 border-transparent border-solid shadow-xl  rounded-2xl bg-clip-border">
             <div class="p-6 pb-0 mb-0 border-b-0 border-b-solid rounded-t-2xl border-b-transparent">
 
               <div class="flex justify-end pr-2 pt-2 mr-4">
-                <button href="/final-project/controllers/logout.php" class="bg-blue-400 hover:bg-blue-700 w-44 text-white font-bold py-2 px-4 mr-4 rounded"><a href="forms_admin.php"> Añadir Usuario</a></button>
+                <button class="bg-blue-400 hover:bg-blue-700 w-44 text-white font-bold py-2 px-4 mr-4 rounded"><a href="forms_admin.php"> Añadir Usuario</a></button>
               </div>
 
 
@@ -146,39 +146,51 @@
                 <!-- table 1 -->
                 <div class="flex flex-wrap -mx-3">
                   <div class="flex-none w-full max-w-full px-3">
-                    <div class="relative flex flex-col min-w-0 mb-6 break-words bg-white border-0 border-transparent border-solid shadow-xl dark:bg-slate-850 dark:shadow-dark-xl rounded-2xl bg-clip-border" id="userTable">
+                    <div class="relative flex flex-col min-w-0 mb-6 break-words bg-white border-0 border-transparent border-solid shadow-xl  rounded-2xl bg-clip-border" id="userTable">
                       <div class="p-6 pb-0 mb-0 border-b-0 border-b-solid rounded-t-2xl border-b-transparent">
 
                         <table class="items-center w-full mb-0 align-top border-collapse dark:border-white/40 text-slate-500">
                           <thead class="align-bottom">
                             <tr>
-                              <th class="px-6 py-3 font-bold text-left uppercase align-middle bg-transparent border-b border-collapse shadow-none dark:border-white/40 dark:text-white text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70">IDENTIFICACION</th>
-                              <th class="px-6 py-3 font-bold text-center uppercase align-middle bg-transparent border-b border-collapse shadow-none dark:border-white/40 dark:text-white text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70">EMAIL</th>
-                              <th class="px-6 py-3 font-bold text-center uppercase align-middle bg-transparent border-b border-collapse shadow-none dark:border-white/40 dark:text-white text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70">ROL</th>
-                              <th class="px-6 py-3 font-semibold capitalize align-middle bg-transparent border-b border-collapse border-solid shadow-none dark:border-white/40 dark:text-white tracking-none whitespace-nowrap text-slate-400 opacity-70"></th>
+                              <th class="px-6 py-3 font-bold text-left uppercase align-middle bg-transparent border-b border-collapse shadow-none  text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70">IDENTIFICACION</th>
+                              <th class="px-6 py-3 font-bold text-center uppercase align-middle bg-transparent border-b border-collapse shadow-none  text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70">EMAIL</th>
+                              <th class="px-6 py-3 font-bold text-center uppercase align-middle bg-transparent border-b border-collapse shadow-none  text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70">ROL</th>
+                              <th class="px-6 py-3 font-semibold capitalize align-middle bg-transparent border-b border-collapse border-solid shadow-none  tracking-none whitespace-nowrap text-slate-400 opacity-70"></th>
                             </tr>
                           </thead>
                           <tbody>
+                          <?php 
+                            require_once(__DIR__ . '../../../models/user.php');
+                            $usuario = new UserModel();
+                            $data = $usuario->getUserByRol("admin");
+                            foreach ($data as $key => $row) {
+                          ?>
                             <tr>
-                              <td class="p-2 align-middle bg-transparent border-b dark:border-white/40 whitespace-nowrap shadow-transparent">
-                                <div class="flex px-2 py-1">
-                                  <div class="flex flex-col justify-center">
-                                    <h6 class="mb-0 text-sm leading-normal dark:text-white">------</h6>
-                                  </div>
+                              <td class="p-2 align-middle bg-transparent border-b  whitespace-nowrap shadow-transparent">
+                                <div class="flex px-2 py-1  justify-start">
+                                    <h6 class="mb-0 text-sm leading-normal"><?= $row['identification'] ?></h6>
                                 </div>
                               </td>
-                              <td class="p-2 align-middle bg-transparent border-b dark:border-white/40 whitespace-nowrap shadow-transparent">
-                                <p class="mb-0 text-xs font-semibold leading-tight dark:text-white dark:opacity-80">-------</p>
-                              </td>
-                              <td class="p-2 text-center align-middle bg-transparent border-b dark:border-white/40 whitespace-nowrap shadow-transparent">
-                                <p class="mb-0 text-xs font-semibold leading-tight dark:text-white dark:opacity-80">---------</p>
-                              </td>
-                              <td class="ml-4 p-2 align-middle bg-transparent border-b dark:border-white/40 whitespace-nowrap shadow-transparent">
-                                <div class="flex justify-end">
-                                  <button type="button" class="text-gray-900 bg-green-200 from-teal-200 to-lime-200 hover:bg-green-400 hover:from-teal-200 hover:to-lime-200 focus:ring-4 focus:outline-none focus:ring-lime-200 dark:focus:ring-teal-700 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">Eliminar</button>
+                              <td class="p-2 align-middle bg-transparent border-b  whitespace-nowrap shadow-transparent">
+                                <div class="flex px-2 py-1  justify-center">
+                                    <h6 class="mb-0 text-sm leading-normal"><?= $row['email'] ?></h6>
                                 </div>
                               </td>
+                              <td class="p-2 align-middle bg-transparent border-b  whitespace-nowrap shadow-transparent">
+                                <div class="flex px-2 py-1  justify-center">
+                                    <h6 class="mb-0 text-sm leading-normal "><?= $row['role'] ?></h6>
+                                </div>
+                              </td>
+                              <td class="p-2 align-middle bg-transparent border-b whitespace-nowrap shadow-transparent">
+                                <div class="flex px-2 py-1 justify-end">
+                                    <button type="button" class="text-gray-900 bg-green-200 from-teal-200 to-lime-200 hover:bg-green-400 hover:from-teal-200 hover:to-lime-200 focus:ring-4 focus:outline-none focus:ring-lime-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">Eliminar</button>
+                                </div>
+                              </td>
+
                             </tr>
+                            <?php
+                              }
+                            ?>
                           </tbody>
                         </table>
                       </div>

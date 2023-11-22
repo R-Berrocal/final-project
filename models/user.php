@@ -81,4 +81,9 @@ class UserModel extends Connection
         $query = "DELETE FROM users WHERE id = $id";
         return parent::save($query);
     }
+    public function getUserByRol($rol)
+    {
+        $query = "SELECT * FROM USERS WHERE role = '$rol'";
+        return parent::findAll($query);
+    }
 }
