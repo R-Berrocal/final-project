@@ -16,7 +16,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if ($success !== true) {
                 //$error_message = "Hubo un error al guardar la respuesta para la pregunta ID $questionId: " . $success;
                 return;
-            }
+            } 
         }
     }
     $questionaryId = $_POST['questionary_id'] + 1;
