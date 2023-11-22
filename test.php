@@ -1,10 +1,10 @@
 <?php
 
-require_once(__DIR__ . './models/questions.php');
-$questionModel = new QuestionModel();
+require_once(__DIR__ . './models/responseModel.php');
+$responseModel = new ResponseModel();
 
 // Traerse el cuestionario, solo deben pasar el ide del cuestionario
-$questionary = $questionModel->getQuestionaryById(2);
+$response = $responseModel->getResponsesByUserIdAndFormId(2,4);
 
 header('Content-Type: application/json');
-print_r(json_encode($questionary, JSON_PRETTY_PRINT));
+print_r(json_encode($response, JSON_PRETTY_PRINT));
