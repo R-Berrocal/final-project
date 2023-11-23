@@ -61,7 +61,7 @@ class UserModel extends Connection
 
     public function createUser()
     {
-        $query = "INSERT INTO users (identification, email, password, role) VALUES ('{$this->getIdentification()}', '{$this->getEmail()}', '{$this->getPassword()}', 'user');";
+        $query = "INSERT INTO users (identification, email, password, role) VALUES ('{$this->getIdentification()}', '{$this->getEmail()}', '{$this->getPassword()}', 'admin');";
         $save = parent::save($query);
         $result = false;
         if ($save) {
@@ -80,10 +80,5 @@ class UserModel extends Connection
     {
         $query = "DELETE FROM users WHERE id = $id";
         return parent::save($query);
-    }
-    public function getUserByRol($rol)
-    {
-        $query = "SELECT * FROM USERS WHERE role = '$rol'";
-        return parent::findAll($query);
     }
 }
