@@ -73,7 +73,7 @@
   <main class="relative h-full max-h-screen transition-all duration-200 ease-in-out xl:ml-68 rounded-xl">
     <!-- Navbar -->
     <div class="flex justify-end pr-2 pt-2">
-      <button class="bg-red-400  hover:bg-red-700 w-44 text-white font-bold py-2 px-4 rounded"><a href="/final-project/controllers/logout.php"> Cerrar Sesion</a></button>
+    <a href="/final-project/controllers/logout.php" class="bg-red-400  hover:bg-red-700 w-35 text-white font-bold py-2 px-4 rounded text-center">Cerrar Sesion</a>
     </div>
     <nav class="relative flex flex-wrap items-center justify-between px-0 py-2 mx-6 transition-all ease-in shadow-none duration-250 rounded-2xl lg:flex-nowrap lg:justify-start" navbar-main navbar-scroll="false">
 
