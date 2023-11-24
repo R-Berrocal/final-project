@@ -43,7 +43,9 @@
           <a href="/final-project/views/index.php" class="block py-2 px-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500" aria-current="page">Home</a>
         </li>
         <!-- vista para los formularios de preguntas form.php -->
-
+        <li>
+          <a href="/final-project/views/personal_formulario.php" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0">Personal Form</a>
+        </li>
         <li>
           <a href="/final-project/views/form.php" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0">Form</a>
         </li>
