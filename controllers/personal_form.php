@@ -55,7 +55,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Verificar el resultado
     if (is_numeric($result)) {
         echo "Datos insertados correctamente.";
-        header("refresh:2;url='../views/form1.php'");
+        header("refresh:2;url='../views/personal_formulario.php'");
     } else {
         echo "Error al insertar datos: " . $result;
     }
