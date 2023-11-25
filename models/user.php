@@ -61,11 +61,18 @@ class UserModel extends Connection
 
     public function createUser()
     {
-        $query = "INSERT INTO users (identification, email, password, role) VALUES ('{$this->getIdentification()}', '{$this->getEmail()}', '{$this->getPassword()}', 'user');";
-        $save = parent::save($query);
-        $result = false;
-        if ($save) {
-            $result = true;
+        $query = "SELECT * FROM users WHERE email = '{$this->getEmail()}' OR identification = {$this->getIdentification()}";
+        $data = parent::findOne($query);   
+        
+        if (is_string($data)) {
+            $query = "INSERT INTO users (identification, email, password, role) VALUES ('{$this->getIdentification()}', '{$this->getEmail()}', '{$this->getPassword()}', 'user');";
+            $save = parent::save($query);
+            $result = false;
+            if ($save) {
+                $result = true;
+            }
+        }else{
+            $result = false;
         }
         return $result;
     }
