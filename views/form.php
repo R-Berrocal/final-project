@@ -20,6 +20,7 @@ if(!isset($_GET['id'])) {
   $questionary = $questionModel->getQuestionaryById($_GET['id']);
 }
 
+$current_page = basename($_SERVER['PHP_SELF']);
 
 ?>
 

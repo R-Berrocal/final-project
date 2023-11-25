@@ -4,6 +4,7 @@ $userLogued = $_SESSION['user'];
 if (!isset($userLogued)) {
     header("Location: /final-project");
 }
+$current_page = basename($_SERVER['PHP_SELF']);
 ?>
 <!DOCTYPE html>
 <html lang="en">
