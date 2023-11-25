@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 require_once(__DIR__ . '../../models/useradmin.php');
 
 if (isset($_POST)) {
@@ -17,9 +19,10 @@ if (isset($_POST)) {
 
         $save = $usuario->createUser();
         if ($save) {
-            $_SESSION['register'] = "complete";
+            header("Location: /final-project/views/admin/list_admins.php");
         } else {
-            $_SESSION['register'] = "failed";
+            $_SESSION['register'] = "Error este administrador ya esta registrado";
+            header("Location: /final-project/views/admin/forms_admin.php");
         }
     } else {
         $_SESSION['register'] = "failed";
@@ -27,5 +30,3 @@ if (isset($_POST)) {
 } else {
     $_SESSION['register'] = "failed";
 }
-
-header("Location: /final-project/views/admin/list_admins.php");
