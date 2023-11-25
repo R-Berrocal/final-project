@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 require_once(__DIR__ . '../../models/user.php');
 
 if (isset($_POST)) {
@@ -15,11 +17,13 @@ if (isset($_POST)) {
         $usuario->setEmail($email);
         $usuario->setPassword($password);
 
-        $save = $usuario->createUser();
+        $save = $usuario->createUser();    
         if ($save) {
-            $_SESSION['register'] = "complete";
+            $_SESSION['register'] = "complete";               
+            header("Location: /final-project/views/");
         } else {
-            $_SESSION['register'] = "failed";
+            $_SESSION['register'] = "Error este usuario ya esta registrado";                
+            header("Location: /final-project/views/create.php");
         }
     } else {
         $_SESSION['register'] = "failed";
@@ -27,5 +31,3 @@ if (isset($_POST)) {
 } else {
     $_SESSION['register'] = "failed";
 }
-
-header("Location: /final-project/views");
