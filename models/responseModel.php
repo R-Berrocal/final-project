@@ -31,7 +31,7 @@ class ResponseModel extends Connection
     {
         $result = false;
 
-        $query = "SELECT * FROM users WHERE id = 6";
+        $query = "SELECT * FROM users WHERE id = $id";
         $login = parent::findOne($query);
 
         if (is_object($login) && $login->num_rows == 1) {

@@ -1,5 +1,6 @@
 <?php
 require_once('../../models/responseModel.php');
+$id = 0;
 
 if (isset($_GET["id"])) {
 
