@@ -20,10 +20,43 @@ class ResponseModel extends Connection
 
         $response = parent::findAll($query);
 
-        if (!$response) {
+        if (is_string($response)) {
             return "Este usuario no tiene respuestas para este formulario.";
         }
 
         return $response;
+    }
+
+    public function getOne($id)
+    {
+        $result = false;
+
+        $query = "SELECT * FROM users WHERE id = $id";
+        $login = parent::findOne($query);
+
+        if (is_object($login) && $login->num_rows == 1) {
+            $usuario = $login->fetch_object();
+            $result = $usuario;
+        }
+
+        return $result;
+    }
+
+    public function getForm()
+    {
+        $result = false;
+        $data = [];
+
+        $query = "SELECT * FROM questionary";
+        $login = parent::findOne($query);
+
+        if (is_object($login)) {
+            while ($row = mysqli_fetch_assoc($login)) {
+                $data[] = $row;
+            }
+            $result = $data;
+        }
+
+        return $result;
     }
 }
