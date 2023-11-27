@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 session_start();
 
@@ -18,6 +19,7 @@ if (isset($_POST)) {
         $usuario->setPassword($password);
 
         $save = $usuario->createUser();
+        
         if ($save) {
             header("Location: /final-project/views/admin/list_admins.php");
         } else {
@@ -29,4 +31,8 @@ if (isset($_POST)) {
     }
 } else {
     $_SESSION['register'] = "failed";
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 9838759 (Validacion usuarios existentes)

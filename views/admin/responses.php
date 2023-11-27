@@ -107,38 +107,40 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <?php 
-                      require_once(__DIR__ . '../../../models/user.php');
-                      $usuario = new UserModel();
-                      $data = $usuario->getUserByRol("user");
-                      foreach ($data as $key => $row) {
-                      ?>
-                   
-                    <tr>
-                      <td class="p-2 align-middle bg-transparent border-b  whitespace-nowrap shadow-transparent">
-                        <div class="flex px-2 py-1  justify-center">
-                            <h6 class="mb-0 text-sm leading-normal "><?= $row['identification'] ?></h6>
-                        </div>
-                      </td>
-                      <td class="p-2 align-middle bg-transparent border-b whitespace-nowrap shadow-transparent">
-                        <div class="flex px-2 py-1  justify-center">
-                            <h6 class="mb-0 text-sm leading-normal "><?= $row['email'] ?></h6>
-                        </div>
-                      </td>
-                      <td class="p-2 align-middle bg-transparent border-b  whitespace-nowrap shadow-transparent">
-                        <div class="flex px-2 py-1  justify-center">
-                            <h6 class="mb-0 text-sm leading-normal "><?= $row['role'] ?></h6>
-                        </div>
-                      </td>                    
-                      <td class="p-2 align-middle bg-transparent border-b  whitespace-nowrap shadow-transparent">
-                        <div class="flex px-2 py-1 justify-end">
-                            <button type="button" class="text-gray-900 bg-green-200 from-teal-200 to-lime-200 hover:bg-green-400 hover:from-teal-200 hover:to-lime-200 focus:ring-4 focus:outline-none focus:ring-lime-200  font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">Responses</button>
-                        </div>
-                      </td>
-
-                    </tr>
                     <?php
-                      }
+                    require_once(__DIR__ . '../../../models/user.php');
+                    $usuario = new UserModel();
+                    $data = $usuario->getUserByRol("user");
+                    foreach ($data as $key => $row) {
+                    ?>
+
+                      <tr>
+                        <td class="p-2 align-middle bg-transparent border-b  whitespace-nowrap shadow-transparent">
+                          <div class="flex px-2 py-1  justify-center">
+                            <h6 class="mb-0 text-sm leading-normal "><?= $row['identification'] ?></h6>
+                          </div>
+                        </td>
+                        <td class="p-2 align-middle bg-transparent border-b whitespace-nowrap shadow-transparent">
+                          <div class="flex px-2 py-1  justify-center">
+                            <h6 class="mb-0 text-sm leading-normal "><?= $row['email'] ?></h6>
+                          </div>
+                        </td>
+                        <td class="p-2 align-middle bg-transparent border-b  whitespace-nowrap shadow-transparent">
+                          <div class="flex px-2 py-1  justify-center">
+                            <h6 class="mb-0 text-sm leading-normal "><?= $row['role'] ?></h6>
+                          </div>
+                        </td>
+                        <td class="p-2 align-middle bg-transparent border-b  whitespace-nowrap shadow-transparent">
+                          <div class="flex px-2 py-1 justify-end">
+                            <a href="./response.php?id=<?php echo $row['id']?>">
+                              <button type="button" class="text-gray-900 bg-green-200 from-teal-200 to-lime-200 hover:bg-green-400 hover:from-teal-200 hover:to-lime-200 focus:ring-4 focus:outline-none focus:ring-lime-200  font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">Responses</button>
+                            </a>
+                          </div>
+                        </td>
+
+                      </tr>
+                    <?php
+                    }
                     ?>
                   </tbody>
                 </table>
