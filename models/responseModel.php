@@ -59,4 +59,46 @@ class ResponseModel extends Connection
 
         return $result;
     }
+
+    public function getPersonalInformation($userId)
+    {
+        $query = "SELECT
+                pi.*,
+                u.identification,
+                u.email,
+                tc.value AS contract_type,
+                tch.value AS charge_type,
+                dj.value AS job_duration,
+                cs.value AS civil_status,
+                ts.value AS salary_type,
+                th.value AS housing_type,
+                el.value AS education_level
+            FROM
+                personal_information pi
+            JOIN
+                users u ON pi.users_id = u.id
+            JOIN
+                type_contract tc ON pi.type_contract_id = tc.id
+            JOIN
+                type_charge tch ON pi.type_charge_id = tch.id
+            JOIN
+                duration_job dj ON pi.duration_job_id = dj.id
+            JOIN
+                civil_status cs ON pi.civil_status_id = cs.id
+            JOIN
+                type_salary ts ON pi.type_salary_id = ts.id
+            JOIN
+                type_housing th ON pi.type_housing_id = th.id
+            JOIN
+                education_level el ON pi.education_level_id = el.id
+            WHERE
+                u.id = $userId";
+
+        $response = parent::findAll($query);
+        if (is_string($response)) {
+            return "Este usuario no tiene respuestas para este formulario.";
+        }
+
+        return $response;
+    }
 }

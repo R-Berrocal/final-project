@@ -1,8 +1,6 @@
 <?php
 session_start();
 
-session_start();
-
 require_once(__DIR__ . '../../models/useradmin.php');
 
 if (isset($_POST)) {
@@ -31,8 +29,4 @@ if (isset($_POST)) {
     }
 } else {
     $_SESSION['register'] = "failed";
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 9838759 (Validacion usuarios existentes)
