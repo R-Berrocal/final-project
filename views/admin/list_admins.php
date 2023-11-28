@@ -143,12 +143,6 @@
                                     <h6 class="mb-0 text-sm leading-normal "><?= $row['role'] ?></h6>
                                 </div>
                               </td>
-                              <td class="p-2 align-middle bg-transparent border-b whitespace-nowrap shadow-transparent">
-                                <div class="flex px-2 py-1 justify-end">
-                                    <button type="button" class="text-gray-900 bg-green-200 from-teal-200 to-lime-200 hover:bg-green-400 hover:from-teal-200 hover:to-lime-200 focus:ring-4 focus:outline-none focus:ring-lime-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">Eliminar</button>
-                                </div>
-                              </td>
-
                             </tr>
                             <?php
                               }
