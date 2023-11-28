@@ -1,8 +1,4 @@
 <?php session_start()?>
-<<<<<<< HEAD
-
-=======
->>>>>>> 9838759 (Validacion usuarios existentes)
 <!DOCTYPE html>
 <html lang="en">
 

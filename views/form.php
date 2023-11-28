@@ -14,7 +14,7 @@ if(!isset($_GET['id'])) {
   $questionary = $questionModel->getQuestionaryById(1);
 } else {
   if($_GET['id'] > 4) {
-    header("Location: /final-project/views/finished.html");
+    header("refresh:1;url='../controllers/logout.php'");
     exit;
   }
   $questionary = $questionModel->getQuestionaryById($_GET['id']);

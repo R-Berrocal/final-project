@@ -437,10 +437,19 @@ btnComplete.addEventListener("click", (event) => {
         // Evita el envío del formulario si ya ha sido validado
         event.preventDefault();
         // Aquí puedes enviar el formulario o realizar otras acciones al completar
-        document.getElementsByTagName('form')[0].submit();
+        Swal.fire({
+            icon: 'success',
+            title: '¡Enviado!',
+            text: 'El formulario se envió con éxito.',
+        }).then((result) => {
+            if (result.isConfirmed) {
+                document.getElementsByTagName('form')[0].submit();
+            }
+        })
     }
 })
 </script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.1/flowbite.min.js"></script>
 </body>
 </html>
