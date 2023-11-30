@@ -1,4 +1,13 @@
-<?php session_start() ?>
+<?php 
+  session_start();
+  // Validar si hay una sesión iniciada
+  
+  if (isset($_SESSION['user'])) {
+    // Redirigir a la página de inicio de sesión si no hay una sesión iniciada
+    header("Location: /final-project/views/index.php");
+    exit; // Asegúrate de terminar la ejecución del script si se redirige
+  }
+?>
 
 <!DOCTYPE html>
 <html lang="en">

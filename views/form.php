@@ -3,8 +3,7 @@
 include '../controllers/general_form.php';
 
 // Validar si hay una sesión iniciada
-$userLogued = $_SESSION['user'];
-if (!isset($userLogued)) {
+if (!isset($_SESSION['user'])) {
   // Redirigir a la página de inicio de sesión si no hay una sesión iniciada
   header("Location: /final-project");
   exit; // Asegúrate de terminar la ejecución del script si se redirige
@@ -20,6 +19,7 @@ if(!isset($_GET['id'])) {
   $questionary = $questionModel->getQuestionaryById($_GET['id']);
 }
 
+$current_page = basename($_SERVER['PHP_SELF']);
 
 ?>
 

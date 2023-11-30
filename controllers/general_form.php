@@ -22,6 +22,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $questionaryId = $_POST['questionary_id'] + 1;
     
   
-    // Redirigir al home luego de enviar las respuestas
+   
     header("Location: /final-project/views/form.php?id=$questionaryId");
 }

@@ -14,7 +14,7 @@ if (isset($_POST)) {
     if ($identity && is_object($identity)) {
         if ($identity->role == 'user') {
             $_SESSION['user'] = $identity;
-            header("Location: /final-project/views/");
+            header("Location: /final-project/views/index.php");
         } else if ($identity->role == 'admin') {
             $_SESSION['admin'] = $identity;
             header("Location: /final-project/views/admin/dashboard.php");

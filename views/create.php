@@ -1,3 +1,5 @@
+<?php session_start()?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -20,6 +22,7 @@
                         REGISTRARSE
                     </h1>
                     <div class="w-full flex-1 mt-8">
+                    <h2 class="text-red-600 mx-auto max-w-xs"><?php if (isset($_SESSION['register'])) {echo $_SESSION['register'];}?></h2>
                         <form class="flex flex-col justify-center items-center gap-4 p-6" action="../controllers/create.php" method="post">
                             <div class="mx-auto max-w-xs">
                                 <input class="w-full px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white" type="text" placeholder="Identificación" name="identification" required />

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Questionary 2.0</title>
+  <link rel="stylesheet" href="bubbles.css">
+</head>
+
+<body>
+
+  <div id="particles-js"></div>
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <script>
+    particlesJS.load('particles-js', 'http://localhost/final-project/assets/particles.json', function () {
+      console.log('callback - particles.js config loaded');
+    });
+  </script>
+
+  <!-- Para aclarar, no es buena practica meter estilos en las etiquetas -->
+  <main style="
+    background-color: rgba(30, 31, 32, 0.5);
+    top: 100vh;
+    position: relative;
+    "
+  >
+    <p style="
+    background-color: rgb(30, 31, 32);
+    width: 90%;
+    margin-top: -40px;
+    padding-left: 10px;
+    color: rgb(241, 236, 236); 
+    margin-left: 20px; 
+    margin-bottom: 5px; 
+    float: left;
+    font-weight: 100;
+    font-family: cursive;
+  ">
+      QUESTIONARY 2.0
+    </p>
+    <p style="
+    background-color: rgb(30, 31, 32);
+    width: 10%;
+    margin-top: -40px; 
+    color: rgb(241, 236, 236); 
+    margin-right: 20px; 
+    margin-bottom: 5px; 
+    float: right;
+    font-weight: 100;
+    font-family: cursive;
+  ">
+      CARGANDO...
+    </p>
+  </main>
+  <script>
+    setTimeout(function () {
+      window.location.href = 'http://localhost/final-project/login.php';
+    }, 8000);
+  </script>
+</body>
+
+</html>
