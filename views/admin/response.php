@@ -134,6 +134,11 @@ if (isset($_GET["id"])) {
                                                                     </li>
                                                                 </div>
                                                             <?php endforeach; ?>
+                                                            <div class="mb-4">
+                                                                <li>
+                                                                    <a href="./response.php?id=<?php echo $user->id ?>&form=5" class="block px-4 py-2 hover:bg-gray-100">CUESTIONARIO DE PERSONAL INFORMACIÓN</a>
+                                                                </li>
+                                                            </div>
                                                         </ul>
                                                     </div>
                                                     <!-- End: Dropdown menu -->
@@ -163,12 +168,15 @@ if (isset($_GET["id"])) {
                                 $idform = $_GET["form"];
 
                                 $model = new ResponseModel();
-                                $response = $model->getResponsesByUserIdAndFormId($id, $idform);
+                                if ($_GET["form"] == 5) {
+                                    $response = $model->getPersonalInformation($id);
+                                } else {
+                                    $response = $model->getResponsesByUserIdAndFormId($id, $idform);
+                                }
 
                                 if (is_string($response)) {
                                     echo '<h3 class="text-center text-2xl text-gray-500" style="padding: 10%;">' . $response . '</h3>';
                                 } else {
-                                    $response = $model->getResponsesByUserIdAndFormId($id, $idform);
 
                                     $items_per_page = 7;
 
@@ -183,48 +191,146 @@ if (isset($_GET["id"])) {
                                     $start_index = ($current_page - 1) * $items_per_page;
 
                                     $sub_array = array_slice($response, $start_index, $items_per_page);
-                            ?>
-                                    <div class="flex flex-wrap justify-center">
-                                        <div class="p-5 w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow">
-                                            <!-- table 1 -->
-                                            <h2 class="font-bold"><?php echo "" . $questionary[$idform-1]["name"]; ?></h2>
-                                            <h3 class="pt-5"></h3>
-                                            <?php foreach ($sub_array as $question) : ?>
-                                                <div class="mb-4">
-                                                    <h3 class=""><?php echo "" . $question["question"]; ?></h3>
-                                                    <input type="radio" name="answer_<?= $question["id"] ?>" value="<?= $question["id"] ?>" class="mr-2" checked>
-                                                    <label class=""><?= $question["response"] ?></label>
-                                                    <ul class="list-none pl-5">
-                                                    </ul>
-                                                </div>
-                                            <?php endforeach; ?>
-                                        </div>
-                                    </div>
 
-                                    <div class="pagination flex flex-col space-y-4 items-center justify-center p-5">
-                                        <nav aria-label="Page navigation example">
-                                            <ul class="flex items-center -space-x-px h-8 text-sm">
-                                                <?php for ($i = 1; $i <= $total_pages; $i++) : ?>
-                                                    <?php if ($i == $current_page) : ?>
-                                                        <nav aria-label="Page navigation example">
-                                                            <ul class="flex items-center -space-x-px h-8 text-sm">
-                                                                <li>
-                                                                    <span class="current flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700"><?php echo $i; ?></span>
-                                                                </li>
-                                                            </ul>
-                                                        </nav>
-                                                    <?php else : ?>
-                                                        <li>
-                                                            <a class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700" href="?id=<?php echo $id; ?>&form=<?php echo $idform; ?>&page=<?php echo $i; ?>"><?php echo $i; ?></a>
-                                                        </li>
-                                                    <?php endif; ?>
-                                                <?php endfor; ?>
-                                            </ul>
-                                        </nav>
-                                    </div>
+                                    if ($_GET["form"] == 5) {
+                            ?>
+                                        <div class="flex flex-wrap justify-center">
+                                            <div class="p-5 w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow">
+                                                <!-- table 1 -->
+                                                <h2 class="font-bold">CUESTIONARIO DE PERSONAL INFORMACIÓN</h2>
+                                                <h3 class="pt-5"></h3>
+                                                <div class="mb-4">
+                                                    <li class="text-gray-900">Nombre: <?= $response[0]["name"] ?></li>
+                                                </div>
+                                                <div class="mb-4">
+                                                    <li class="text-gray-900">Fecha de Nacimiento: <?= $response[0]["year_of_birth"] ?></h3>
+                                                </div>
+                                                <div class="mb-4">
+                                                    <li class="text-gray-900">profesión: <?= $response[0]["profession"] ?></h3>
+                                                </div>
+                                                <div class="mb-4">
+                                                    <li class="text-gray-900">Estrato: <?= $response[0]["stratum"] ?></h3>
+                                                </div>
+                                                <div class="mb-4">
+                                                    <li class="text-gray-900">Sexo: <?= $response[0]["sex"] ?></h3>
+                                                </div>
+                                                <div class="mb-4">
+                                                    <li class="text-gray-900">Ciudad: <?= $response[0]["city"] ?></h3>
+                                                </div>
+                                                <div class="mb-4">
+                                                    <li class="text-gray-900">Departamento: <?= $response[0]["department"] ?></h3>
+                                                </div>
+                                                <div class="mb-4">
+                                                    <li class="text-gray-900">Ciudad de Trabajo: <?= $response[0]["city_job"] ?></h3>
+                                                </div>
+                                                <div class="mb-4">
+                                                    <li class="text-gray-900">Departamento de trabajo: <?= $response[0]["department_job"] ?></h3>
+                                                </div>
+                                                <div class="mb-4">
+                                                    <li class="text-gray-900">Nombre de Trabajo: <?= $response[0]["name_job"] ?></h3>
+                                                </div>
+                                                <div class="mb-4">
+                                                    <li class="text-gray-900">Nombre de Departamento: <?= $response[0]["name_department_job"] ?></h3>
+                                                </div>
+                                                <div class="mb-4">
+                                                    <li class="text-gray-900">Num. de horas trabajadas: <?= $response[0]["num_hour_job"] ?></h3>
+                                                </div>
+                                                <div class="mb-4">
+                                                    <li class="text-gray-900">Identificación: <?= $response[0]["identification"] ?></h3>
+                                                </div>
+                                                <div class="mb-4">
+                                                    <li class="text-gray-900">Correo Electrónico: <?= $response[0]["email"] ?></h3>
+                                                </div>
+                                                <div class="mb-4">
+                                                    <li class="text-gray-900">Tipo de Contrato: <?= $response[0]["contract_type"] ?></h3>
+                                                </div>
+                                                <div class="mb-4">
+                                                    <li class="text-gray-900">Tipo de Cargo: <?= $response[0]["charge_type"] ?></h3>
+                                                </div>
+                                                <div class="mb-4">
+                                                    <li class="text-gray-900">Duración del Trabajo: <?= $response[0]["job_duration"] ?></h3>
+                                                </div>
+                                                <div class="mb-4">
+                                                    <li class="text-gray-900">Estado Civil: <?= $response[0]["civil_status"] ?></h3>
+                                                </div>
+                                                <div class="mb-4">
+                                                    <li class="text-gray-900">Tipo de Salario: <?= $response[0]["salary_type"] ?></h3>
+                                                </div>
+                                                <div class="mb-4">
+                                                    <li class="text-gray-900">Tipo de Hogar: <?= $response[0]["housing_type"] ?></h3>
+                                                </div>
+                                                <div class="mb-4">
+                                                    <li class="text-gray-900">Nivel Educativo: <?= $response[0]["education_level"] ?></h3>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="pagination flex flex-col space-y-4 items-center justify-center p-5">
+                                            <nav aria-label="Page navigation example">
+                                                <ul class="flex items-center -space-x-px h-8 text-sm">
+                                                    <?php for ($i = 1; $i <= $total_pages; $i++) : ?>
+                                                        <?php if ($i == $current_page) : ?>
+                                                            <nav aria-label="Page navigation example">
+                                                                <ul class="flex items-center -space-x-px h-8 text-sm">
+                                                                    <li>
+                                                                        <span class="current flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700"><?php echo $i; ?></span>
+                                                                    </li>
+                                                                </ul>
+                                                            </nav>
+                                                        <?php else : ?>
+                                                            <li>
+                                                                <a class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700" href="?id=<?php echo $id; ?>&form=<?php echo $idform; ?>&page=<?php echo $i; ?>"><?php echo $i; ?></a>
+                                                            </li>
+                                                        <?php endif; ?>
+                                                    <?php endfor; ?>
+                                                </ul>
+                                            </nav>
+                                        </div>
                         </div>
                     <?php
+                                    } else {
+                    ?>
+                        <div class="flex flex-wrap justify-center">
+                            <div class="p-5 w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow">
+                                <!-- table 1 -->
+                                <h2 class="font-bold"><?php echo "" . $questionary[$idform - 1]["name"]; ?></h2>
+                                <h3 class="pt-5"></h3>
+                                <?php foreach ($sub_array as $question) : ?>
+                                    <div class="mb-4">
+                                        <h3 class=""><?php echo "" . $question["question"]; ?></h3>
+                                        <input type="radio" name="answer_<?= $question["id"] ?>" value="<?= $question["id"] ?>" class="mr-2" checked>
+                                        <label class=""><?= $question["response"] ?></label>
+                                        <ul class="list-none pl-5">
+                                        </ul>
+                                    </div>
+                                <?php endforeach; ?>
+                            </div>
+                        </div>
 
+                        <div class="pagination flex flex-col space-y-4 items-center justify-center p-5">
+                            <nav aria-label="Page navigation example">
+                                <ul class="flex items-center -space-x-px h-8 text-sm">
+                                    <?php for ($i = 1; $i <= $total_pages; $i++) : ?>
+                                        <?php if ($i == $current_page) : ?>
+                                            <nav aria-label="Page navigation example">
+                                                <ul class="flex items-center -space-x-px h-8 text-sm">
+                                                    <li>
+                                                        <span class="current flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700"><?php echo $i; ?></span>
+                                                    </li>
+                                                </ul>
+                                            </nav>
+                                        <?php else : ?>
+                                            <li>
+                                                <a class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700" href="?id=<?php echo $id; ?>&form=<?php echo $idform; ?>&page=<?php echo $i; ?>"><?php echo $i; ?></a>
+                                            </li>
+                                        <?php endif; ?>
+                                    <?php endfor; ?>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                <?php
+                                    }
                                 }
                             } else {
 
@@ -247,56 +353,56 @@ if (isset($_GET["id"])) {
                                     $start_index = ($current_page - 1) * $items_per_page;
 
                                     $sub_array = array_slice($response, $start_index, $items_per_page);
-                    ?>
-                        <div class="flex flex-wrap justify-center">
-                            <div class="p-5 w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow">
-                                <?php foreach ($sub_array as $question) : ?>
-                                    <div class="mb-4">
-                                        <h3 class=""><?php echo "" . $question["question"]; ?></h3>
-                                        <input type="radio" name="answer_<?= $question["id"] ?>" value="<?= $question["id"] ?>" class="mr-2" checked>
-                                        <label class=""><?= $question["response"] ?></label>
-                                        <ul class="list-none pl-5">
-                                        </ul>
-                                    </div>
-                                <?php endforeach; ?>
-                            </div>
-                        </div>
-
-                        <!-- Start: Pagination -->
-                        <div class="pagination flex flex-col space-y-4 items-center justify-center p-5">
-                            <nav aria-label="Page navigation example">
-                                <ul class="flex items-center -space-x-px h-8 text-sm">
-                                    <?php for ($i = 1; $i <= $total_pages; $i++) : ?>
-                                        <?php if ($i == $current_page) : ?>
-                                            <nav aria-label="Page navigation example">
-                                                <ul class="flex items-center -space-x-px h-8 text-sm">
-                                                    <li>
-                                                        <span class="current flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700"><?php echo $i; ?></span>
-                                                    </li>
-                                                </ul>
-                                            </nav>
-                                        <?php else : ?>
-                                            <li>
-                                                <a class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700" href="?id=<?php echo $id; ?>&form=<?php echo $idform; ?>&page=<?php echo $i; ?>"><?php echo $i; ?></a>
-                                            </li>
-                                        <?php endif; ?>
-                                    <?php endfor; ?>
+                ?>
+                <div class="flex flex-wrap justify-center">
+                    <div class="p-5 w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow">
+                        <?php foreach ($sub_array as $question) : ?>
+                            <div class="mb-4">
+                                <h3 class=""><?php echo "" . $question["question"]; ?></h3>
+                                <input type="radio" name="answer_<?= $question["id"] ?>" value="<?= $question["id"] ?>" class="mr-2" checked>
+                                <label class=""><?= $question["response"] ?></label>
+                                <ul class="list-none pl-5">
                                 </ul>
-                            </nav>
-                        </div>
-                        <!-- End: Pagination -->
-
+                            </div>
+                        <?php endforeach; ?>
                     </div>
-            <?php
+                </div>
+
+                <!-- Start: Pagination -->
+                <div class="pagination flex flex-col space-y-4 items-center justify-center p-5">
+                    <nav aria-label="Page navigation example">
+                        <ul class="flex items-center -space-x-px h-8 text-sm">
+                            <?php for ($i = 1; $i <= $total_pages; $i++) : ?>
+                                <?php if ($i == $current_page) : ?>
+                                    <nav aria-label="Page navigation example">
+                                        <ul class="flex items-center -space-x-px h-8 text-sm">
+                                            <li>
+                                                <span class="current flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700"><?php echo $i; ?></span>
+                                            </li>
+                                        </ul>
+                                    </nav>
+                                <?php else : ?>
+                                    <li>
+                                        <a class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700" href="?id=<?php echo $id; ?>&form=<?php echo $idform; ?>&page=<?php echo $i; ?>"><?php echo $i; ?></a>
+                                    </li>
+                                <?php endif; ?>
+                            <?php endfor; ?>
+                        </ul>
+                    </nav>
+                </div>
+                <!-- End: Pagination -->
+
+                </div>
+        <?php
                                 }
                             } ?>
-            <div class="flex-auto px-0 pt-0 pb-2">
-                <div class="p-0 overflow-x-auto">
+        <div class="flex-auto px-0 pt-0 pb-2">
+            <div class="p-0 overflow-x-auto">
 
-                </div>
             </div>
-                </div>
+        </div>
             </div>
+        </div>
         </div>
 
         <footer class="pt-4">
