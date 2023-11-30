@@ -1,15 +1,10 @@
 <?php
-// Incluir el archivo general_form.php que contiene la lógica para obtener $questionary
 include '../controllers/general_form.php';
 
-// Validar si hay una sesión iniciada
 $userLogued = $_SESSION['user'];
 if (!isset($userLogued)) {
-  // Redirigir a la página de inicio de sesión si no hay una sesión iniciada
   header("Location: /final-project");
-  exit; // Asegúrate de terminar la ejecución del script si se redirige
 }
-// Obtener los datos del cuestionario para mostrarlos en la página
 if(!isset($_GET['id'])) {
   $questionary = $questionModel->getQuestionaryById(1);
 } else {
