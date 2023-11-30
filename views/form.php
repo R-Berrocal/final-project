@@ -61,7 +61,7 @@ $current_page = basename($_SERVER['PHP_SELF']);
         <input type="hidden" name="questionary_id" value="<?= $questionary["questionary"]->id ?>">
         <button type="button" id="prev-button" class="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2" style="display: none;">Anterior</button>
         <button type="button" id="next-button" class="text-white bg-gradient-to-r from-cyan-400 via-cyan-500 to-cyan-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 shadow-lg shadow-cyan-500/50 dark:shadow-lg dark:shadow-cyan-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2" >Siguiente</button>
-        <button type="submit" id="submit-button" class="text-white bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2" style="display: none;">Enviar Respuestas</button>
+        <button type="submit" id="submit-button" class="text-white bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2" style="display: none;" disabled>Enviar Respuestas</button>
       </form>
     </div>
   </div>
@@ -89,6 +89,7 @@ document.addEventListener('DOMContentLoaded', function() {
         document.querySelector('#prev-button').style.display = currentQuestion === 0 ? 'none' : 'block';
         document.querySelector('#next-button').style.display = currentQuestion === questions.length - 1 ? 'none' : 'block';
         document.querySelector('#submit-button').style.display = currentQuestion === questions.length - 1 ? 'block' : 'none';
+        document.querySelector('#submit-button').disabled = currentQuestion === questions.length - 1 ? false : true;
     }
 
     document.querySelector('#next-button').addEventListener('click', function() {
