@@ -53,9 +53,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $result = $db->save($sql);
 
     // Verificar el resultado
-    if (is_numeric($result)) {
-        echo "Datos insertados correctamente.";
-        header("refresh:1;url='../views/form.php'");
+    if (is_numeric($result)) {  
+        header("Location: /final-project/views/form.php");
     } else {
         echo "Error al insertar datos: " . $result;
     }

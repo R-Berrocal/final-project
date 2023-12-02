@@ -44,11 +44,11 @@
         </li> -->
         <!-- vista para los formularios de preguntas form.php -->
         <li>
-        <a href="/final-project/views/personal_formulario.php" class="block py-2 px-3 text-<?php echo ($current_page == 'personal_formulario.php' ? 'blue-700' : 'black'); ?> rounded <?php echo ($current_page != 'personal_formulario.php' ? 'bg-blue-700' : ''); ?> hover:bg-black-800 md:bg-transparent md:hover:bg-transparent md:hover:text-blue-700 text-black-700 md:p-0">Personal Form</a>
+         <a href="/final-project/views/personal_formulario.php" class="block py-2 px-3 text-blue-700 rounded <?php echo ($current_page != 'personal_formulario.php' ? 'bg-blue-700' : ''); ?> hover:bg-black-800 md:bg-transparent md:hover:bg-transparent md:hover:text-blue-700 text-black-700 md:p-0">Forms</a>
         </li>
-        <li>
+        <!-- <li>
           <a href="/final-project/views/form.php" class="block py-2 px-3 text-<?php echo ($current_page == 'form.php' ? 'blue-700' : 'black'); ?> rounded <?php echo ($current_page != 'form.php' ? 'bg-blue-700' : ''); ?> hover:bg-black-800 md:bg-transparent md:hover:bg-transparent md:hover:text-blue-700 text-black-700 md:p-0">Forms</a>
-        </li>
+        </li> -->
         <!-- <li>
           <a href="#" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 ">Services</a>
         </li>
