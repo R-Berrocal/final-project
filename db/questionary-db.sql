@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 17-11-2023 a las 23:15:08
+-- Tiempo de generación: 02-12-2023 a las 01:29:55
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 7.4.29
 
@@ -554,7 +554,7 @@ INSERT INTO `questions_options` (`id`, `questions_id`, `options_id`) VALUES
 (67, 16, 2),
 (68, 16, 3),
 (69, 16, 4),
-(70, 15, 5),
+(70, 16, 5),
 (71, 17, 1),
 (72, 17, 2),
 (73, 17, 3),
@@ -1981,7 +1981,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `identification`, `email`, `role`, `password`) VALUES
-(1, '1234567890', 'correo@correo.com', 'user', '123456');
+(2, '21321323', 'robertoberro20@gmail.com', 'user', '$2y$04$PpBv16UGHG1NYj/XgBIxOeB0NTSRDZyr40Khy8GYqhcTjsKK6e8Bu'),
+(3, '2132132312', 'robertoadmin@gmail.com', 'admin', '$2y$04$DMpdmTeCjWqdkbpvfePDT.7KfnEJXIWtMxQDWntl.Px4HWi20ho26');
 
 --
 -- Índices para tablas volcadas
@@ -2117,7 +2118,7 @@ ALTER TABLE `options`
 -- AUTO_INCREMENT de la tabla `personal_information`
 --
 ALTER TABLE `personal_information`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT de la tabla `questionary`
@@ -2141,7 +2142,7 @@ ALTER TABLE `questions_options`
 -- AUTO_INCREMENT de la tabla `response`
 --
 ALTER TABLE `response`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=702;
 
 --
 -- AUTO_INCREMENT de la tabla `type_charge`
@@ -2171,7 +2172,7 @@ ALTER TABLE `type_salary`
 -- AUTO_INCREMENT de la tabla `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- Restricciones para tablas volcadas
